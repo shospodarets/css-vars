@@ -43,14 +43,18 @@ Both these syntaxes are taken from the
 
 Variables are declared on the global scope (`$css-vars` map for Sass, `root` for native CSS).
 
-You can declare/redefine variables inside selectors, e.g.:
+You can declare variables inside selectors
+and, of course, redefine any variable, e.g.:
  
 ```scss
+// declaration outside of any selectors
 @include cssVars((
-  --line-height: 1
+  --line-height: 1,
+  --main-font-family: (Helvetica, Arial, sans-serif)
 ));
 
 header{
+  // declaration inside of a selector
   @include cssVars((
     --header-padding: 10px 20px,
     --line-height: 1.428571429,
@@ -58,7 +62,7 @@ header{
   ));
   
   padding: var(--header-padding);
-  line-height: var(--line-height);
+  line-height: var(--line-height); // 1.428571429 is applied
   border: 1px solid var(--other-border-color);
 }
 ```
