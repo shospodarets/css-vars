@@ -1,6 +1,6 @@
 {
-  "name": "css-vars",
-  "version": "1.0.0",
+  "name": "css-var",
+  "version": "1.0.1",
   "main": "css-vars.scss",
   "description": "Sass mixin to prepare for switching to use CSS Custom Properties (aka CSS Variables)",
   "authors": [
@@ -21,6 +21,7 @@
     "node_modules",
     "npm-debug.log",
     "*.iml",
-    ".idea"
+    ".idea",
+    ".npmignore"
   ]
 }
