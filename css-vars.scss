@@ -45,32 +45,37 @@ $css-vars-debug-log: false !default;
 @function var($args...) {
   // CHECK PARAMS
   @if (length($args)==0) {
-    @error "Variable name is expected";
+    @error "Variable name is expected to be passed to the var() function";
   }
   @if (str-length(nth($args, 1)) < 2 or str-slice(nth($args, 1), 0, 2) != '--') {
     @error "Variable name is expected to start from '--'";
   }
 
   // PROCESS
-  @if ($css-vars-use-native) {
-    // Native CSS: don't process function in case of native
-    @return unquote('var(' + $args + ')');
+  $varName: nth($args, 1);
+  $varValue: map-get($css-vars, $varName);
 
-  } @else {
-    // Sass: return value from the map
-
-    $varName: nth($args, 1);
-    $varValue: map-get($css-vars, $varName);
+  @if ($css-vars-debug-log or not $css-vars-use-native) { // Sass or debug
     @if ($varValue==null) { // variable is not provided so far
       @if (length($args)==2) { // the default value is passed
         @if ($css-vars-debug-log) {
-          @warn "Provided default value is used for '#{$varName}'";
+          @warn "Provided default value is used for the variable: '#{$varName}'";
         }
         $varValue: nth($args, 2);
       } @else if ($css-vars-debug-log) {
-        @warn "Variable '#{$varName}' is not assigned, the " var() " declaration used it will be skipped in the result CSS";
+        @warn "Variable '#{$varName}' is not assigned";
+        @if (not $css-vars-use-native) {
+          @warn "The var() declaration used it will be skipped in the result CSS";
+        }
       }
     }
+  }
+
+  @if ($css-vars-use-native) { // CSS variables
+    // Native CSS: don't process function in case of native
+    @return unquote('var(' + $args + ')');
+  } @else {
+    // Sass: return value from the map
     @return $varValue;
   }
 }
@@ -96,7 +101,14 @@ $css-vars-debug-log: false !default;
   }
 
   // PROCESS
-  @if ($css-vars-use-native) {
+  @if ($css-vars-debug-log or not $css-vars-use-native) { // Sass or debug
+    // merge variables and values to the global map (provides no output)
+    @each $varName, $varValue in $varMap {
+      $css-vars: _cssVarAssign($varName, $varValue) !global; // store in global variable
+    }
+  }
+
+  @if ($css-vars-use-native) { // CSS variables
     // Native CSS: assign CSS custom properties to the global scope
     @at-root :root {
       @each $varName, $varValue in $varMap {
@@ -106,11 +118,6 @@ $css-vars-debug-log: false !default;
           #{$varName}: #{$varValue}
         }
       }
-    }
-  } @else {
-    // Sass: merge variables and values to the global map
-    @each $varName, $varValue in $varMap {
-      $css-vars: _cssVarAssign($varName, $varValue) !global; // store in global variable
     }
   }
 }

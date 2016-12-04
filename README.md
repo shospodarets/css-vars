@@ -7,10 +7,10 @@
 * With Bower: `bower install css-var`
 * Manually: get [this file](https://raw.githubusercontent.com/malyw/css-vars/master/css-vars.scss)
 
-Finally, include the file in your project using an @import statement:
+Finally, include the main mixin file in your project using an `@import` statement:
 
 ```scss
-@import "[%PATH%/]css-vars";
+@import "[%PATH%]/css-vars/css-vars";
 ```
 
 ## Usage
@@ -78,6 +78,18 @@ a::after{
 }
 ```
 
+## Advantages of the mixin
+
+Usage of the mixin gives the useful debug information:
+
+- logs when a variable was not assigned but used
+- logs when some variable is reassigned
+- provides info when variable is not defined, but there is a default value passed, which is used instead
+
+This information is helpful in both cases for Sass and CSS variables.
+
+None browsers so far provides such debug info for CSS custom properties.
+
 ## Trigger using of native CSS Custom Properties
 
 To switch the mixin to use native CSS Custom Properties, just provide:
@@ -135,3 +147,44 @@ so you will be notified when:
  * variable is not provided but tried to be used
  * variable is not provided, but default value was- so it's used
  * variable is reassigned
+ 
+## Limitations (**in case of Sass variables**)
+
+There are some limitation because of the Sass nature:
+
+- mixin uses the global map to reassign variables,
+which may result in a different behavior from Custom Properties when non global variables are used.
+
+- Before passing a map of variables to the mixin, Sass invokes all the functions in it, together with var().
+As result you cannot reuse variables in one declaration, e.g. this will not work:
+
+```scss
+@include cssVars((
+--link-color: #4183C4,
+--title-hover-color: var(--link-color)
+));
+```
+
+To make it work, just split the declaration and the usage:
+
+```scss
+@include cssVars((
+--link-color: #4183C4,
+));
+
+@include cssVars((
+--title-hover-color: var(--link-color)
+));
+```
+
+- Sass doesn't invoke functions inside `calc()`, so in that case you have to trigger that using Sass interpolation `#{}`:
+
+```scss
+@include cssVars((
+  --link-indent: calc(#{var(--main-vertical-indent)} / 2)
+));
+.link{
+  width: calc(#{var(--btn-width)} * 2);
+  margin-bottom: var(--link-indent);
+}
+```
