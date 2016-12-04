@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Test in browser</title>
+    <link class="css-link" rel="stylesheet">
+    <link rel="stylesheet" href="highlight.js/default.css">
+    <script src="highlight.js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+
+<h2>Applied styles:</h2>
+<section class="styles">
+    <select class="css-file-names">
+        <option>use-default-native</option>
+        <option>use-default-sass</option>
+        <option>default-native</option>
+        <option>default-sass</option>
+        <option>redefine-native</option>
+        <option>redefine-sass</option>
+        <option>usage-outside-selector-native</option>
+        <option>usage-outside-selector-sass</option>
+        <option>non-existing-usage-native</option>
+        <option>non-existing-usage-sass</option>
+        <option>caveats-native</option>
+        <option>caveats-sass</option>
+    </select>
+</section>
+
+
+<h2>Visual test in the browser:</h2>
+
+<div class="other">
+    other
+</div>
+
+<h2>Code:</h2>
+
+<section class="css-content-wrapper">
+    <section class="code-section">
+        <section class="code-source">
+            <h3>Source:</h3>
+            <pre><code class="css-source"></code></pre>
+        </section>
+    </section>
+
+    <section class="code-section">
+        <section class="code-native">
+            <h3>Native variables:</h3>
+            <pre><code class="css-native"></code></pre>
+        </section>
+        <section class="code-sass">
+            <h3>Sass variables:</h3>
+            <pre><code class="css-sass"></code></pre>
+        </section>
+    </section>
+</section>
+
+<script src="test.js"></script>
+
+</body>
+</html>

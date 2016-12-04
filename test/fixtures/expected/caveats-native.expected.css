@@ -1,0 +1,18 @@
+:root {
+  --tablet: 768px;
+  --bg: #aaa;
+}
+
+@media screen and (min-width: var(--tablet)) {
+  div {
+    background: #ff0;
+  }
+}
+
+body {
+  background: var(--bg);
+}
+
+:root {
+  --bg: #555;
+}

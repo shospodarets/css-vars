@@ -1,0 +1,9 @@
+@media screen and (min-width: 768px) {
+  div {
+    background: #ff0;
+  }
+}
+
+body {
+  background: #aaa;
+}

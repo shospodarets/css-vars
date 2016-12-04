@@ -1,0 +1,17 @@
+body {
+  color: #4d4e53;
+  background: white;
+}
+
+.other {
+  border: 1px solid rebeccapurple;
+  height: 68px;
+  padding: 10px 20px;
+  line-height: 1.42857;
+  transition-duration: 0.35s;
+  margin-top: calc(2vh + 20px);
+}
+
+.other::after {
+  content: "external link";
+}

@@ -1,0 +1,10 @@
+@include cssVars((
+        --main-color:red
+));
+
+div {
+  @include cssVars((
+          --main-color:yellow
+  ));
+  color: var(--main-color);
+}

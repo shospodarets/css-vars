@@ -1,0 +1,7 @@
+html {
+  color: var(--main-colo);
+}
+
+:root {
+  --main-color: green;
+}

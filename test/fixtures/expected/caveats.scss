@@ -1,0 +1,18 @@
+@include cssVars((
+        --tablet: 768px,
+        --bg: #aaa
+));
+
+@media screen and (min-width: var(--tablet)) {
+  div {
+    background: #ff0;
+  }
+}
+
+body {
+  background: var(--bg);
+}
+
+@include cssVars((
+        --bg: #555
+));

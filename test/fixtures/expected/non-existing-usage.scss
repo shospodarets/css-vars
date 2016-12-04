@@ -1,0 +1,6 @@
+html {
+  @include cssVars((
+          --main-color:green
+  ));
+  color: var(--main-colo);
+}

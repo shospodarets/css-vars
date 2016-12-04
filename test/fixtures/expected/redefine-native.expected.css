@@ -1,0 +1,11 @@
+:root {
+  --main-color: red;
+}
+
+div {
+  color: var(--main-color);
+}
+
+:root {
+  --main-color: yellow;
+}

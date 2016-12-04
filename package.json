@@ -1,0 +1,29 @@
+{
+  "name": "css-vars",
+  "version": "1.0.0",
+  "main": "css-vars.scss",
+  "description": "Sass mixin to prepare for switching to use CSS Custom Properties (aka CSS Variables)",
+  "author": "Serg Hospodarets <shospodarets@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-sass": "2.3.2",
+    "node-glob": "1.2.0",
+    "tape": "4.6.3"
+  },
+  "repository": "https://github.com/malyw/css-vars",
+  "bugs": {
+    "url": "https://github.com/malyw/css-vars/issues"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "variables",
+    "custom properties"
+  ],
+  "scripts": {
+    "gulp": "gulp",
+    "test": "gulp sass:test && tape test"
+  }
+}

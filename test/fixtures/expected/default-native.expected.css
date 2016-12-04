@@ -1,0 +1,32 @@
+:root {
+  --main-color: #4d4e53;
+  --main-bg: white;
+}
+
+body {
+  color: var(--main-color);
+  background: var(--main-bg);
+}
+
+.other {
+  border: 1px solid var(--other-border-color);
+  height: var(--other-height);
+  padding: var(--other-padding);
+  line-height: var(--other-line-height);
+  transition-duration: var(--transition-duration);
+  margin-top: var(--margin-top);
+}
+
+:root {
+  --other-border-color: rebeccapurple;
+  --other-height: 68px;
+  --other-padding: 10px 20px;
+  --other-line-height: 1.42857;
+  --transition-duration: 0.35s;
+  --external-link: "external link";
+  --margin-top: calc(2vh + 20px);
+}
+
+.other::after {
+  content: var(--external-link);
+}
