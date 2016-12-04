@@ -15,10 +15,10 @@ Finally, include the main mixin file in your project using an `@import` statemen
 
 ## Usage
 
-To declare variables, use `@include cssVars(<map of variables>)`:
+To declare variables, use `@include css-vars(<map of variables>)`:
 
 ```scss
-@include cssVars((
+@include css-vars((
       --main-color: rgb(0, 0, 0),
       --main-bg: #fff,
       --main-font-size: 14px
@@ -48,14 +48,14 @@ and, of course, redefine any variable, e.g.:
  
 ```scss
 // declaration outside of any selectors
-@include cssVars((
+@include css-vars((
   --line-height: 1,
   --main-font-family: (Helvetica, Arial, sans-serif)
 ));
 
 header{
   // declaration inside of a selector
-  @include cssVars((
+  @include css-vars((
     --header-padding: 10px 20px,
     --line-height: 1.428571429,
     --border-color: rebeccapurple
@@ -120,7 +120,7 @@ E.g. they cannot be used inside Media Query values,
 so the following code will work in Sass, but not in CSS (when you switch):
 
 ```scss
-@include cssVars((
+@include css-vars((
         --tablet: 768px
 ));
 
@@ -159,7 +159,7 @@ which may result in a different behavior from Custom Properties when non global 
 As result you cannot reuse variables in one declaration, e.g. this will not work:
 
 ```scss
-@include cssVars((
+@include css-vars((
 --link-color: #4183C4,
 --title-hover-color: var(--link-color)
 ));
@@ -168,11 +168,11 @@ As result you cannot reuse variables in one declaration, e.g. this will not work
 To make it work, just split the declaration and the usage:
 
 ```scss
-@include cssVars((
+@include css-vars((
 --link-color: #4183C4,
 ));
 
-@include cssVars((
+@include css-vars((
 --title-hover-color: var(--link-color)
 ));
 ```
@@ -180,7 +180,7 @@ To make it work, just split the declaration and the usage:
 - Sass doesn't invoke functions inside `calc()`, so in that case you have to trigger that using Sass interpolation `#{}`:
 
 ```scss
-@include cssVars((
+@include css-vars((
   --link-indent: calc(#{var(--main-vertical-indent)} / 2)
 ));
 .link{

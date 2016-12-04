@@ -1,5 +1,5 @@
 html {
-  @include cssVars((
+  @include css-vars((
           --main-color:green
   ));
   color: var(--main-colo);

@@ -1,4 +1,4 @@
-@include cssVars((
+@include css-vars((
         --main-color:#4d4e53,
         --main-bg:rgb(255, 255, 255)
 ));
@@ -9,7 +9,7 @@ body {
 }
 
 .other {
-  @include cssVars((
+  @include css-vars((
           --other-border-color: rebeccapurple,
           --other-height: 68px,
           --other-padding: 10px 20px,

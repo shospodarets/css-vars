@@ -1,4 +1,4 @@
-@include cssVars((
+@include css-vars((
         --tablet: 768px,
         --bg: #aaa
 ));
@@ -13,6 +13,6 @@ body {
   background: var(--bg);
 }
 
-@include cssVars((
+@include css-vars((
         --bg: #555
 ));

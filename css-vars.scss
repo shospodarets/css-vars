@@ -85,13 +85,13 @@ $css-vars-debug-log: false !default;
 ///
 // CSS mixin to provide variables
 // E.G.:
-// @include cssVars((
+// @include css-vars((
 //    --color: rebeccapurple,
 //    --height: 68px,
 //    --margin-top: calc(2vh + 20px)
 // ));
 ///
-@mixin cssVars($varMap: null) {
+@mixin css-vars($varMap: null) {
   // CHECK PARAMS
   @if ($varMap==null) {
     @error "Map of variables is expected, instead got: null";

@@ -1,9 +1,9 @@
-@include cssVars((
+@include css-vars((
         --main-color:red
 ));
 
 div {
-  @include cssVars((
+  @include css-vars((
           --main-color:yellow
   ));
   color: var(--main-color);
