@@ -1,5 +1,5 @@
-*.iml
-.idea
+/*.iml
+/.idea/
 test
 gulpfile.js
 bower.json
