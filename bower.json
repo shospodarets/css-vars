@@ -1,6 +1,6 @@
 {
   "name": "css-var",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "css-vars.scss",
   "description": "Sass mixin to prepare for switching to use CSS Custom Properties (aka CSS Variables)",
   "authors": [

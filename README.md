@@ -19,7 +19,7 @@ To declare variables, use `@include css-vars(<map of variables>)`:
 
 ```scss
 @include css-vars((
-      --main-color: rgb(0, 0, 0),
+      --main-color: black,
       --main-bg: #fff,
       --main-font-size: 14px
 ));
@@ -30,7 +30,7 @@ To use variables, use the `var()` function:
 ```scss
 body{
   color: var(--main-color);
-  background: var(--main-bg);
+  background: var(--main-bg, #f00);
   font-size: var(--main-font-size);
 }
 ```
@@ -61,7 +61,7 @@ If in you Sass you add **`$css-vars-use-native: true;`** , you will have:
 
 body {
   color: var(--main-color);
-  background: var(--main-bg);
+  background: var(--main-bg, #f00);
   font-size: var(--main-font-size);
 }
 ```
@@ -117,6 +117,12 @@ This information is helpful in both cases for Sass and CSS variables.
 
 None browsers so far provides such debug info for CSS custom properties.
 
+To enable the mixin debug messages output during the Sass compilation, just add the following to your project:
+
+```scss
+$css-vars-debug-log: true;
+```
+
 ## Trigger using of native CSS Custom Properties
 
 To switch the mixin to use native CSS Custom Properties, just provide:
@@ -168,12 +174,6 @@ To debug such cases when you switch just enable the debug messages:
 ```scss
 $css-vars-debug-log: true;
 ```
-
-so you will be notified when:
-
- * variable is not provided but tried to be used
- * variable is not provided, but default value was- so it's used
- * variable is reassigned
  
 ## Limitations (**in case of Sass variables**)
 
