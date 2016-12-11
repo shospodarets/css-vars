@@ -111,11 +111,11 @@ Usage of the mixin gives the useful debug information:
 
 - logs when a variable was not assigned but used
 - logs when some variable is reassigned
-- provides info when variable is not defined, but there is a default value passed, which is used instead
+- provides info when a variable is not defined, but there is a default value passed, which is used instead
 
 This information is helpful in both cases for Sass and CSS variables.
 
-None browsers so far provides such debug info for CSS custom properties.
+None browsers so far provide such debug info for CSS custom properties.
 
 To enable the mixin debug messages output during the Sass compilation, just add the following to your project:
 
