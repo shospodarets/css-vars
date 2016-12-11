@@ -33,11 +33,38 @@ body{
   background: var(--main-bg);
   font-size: var(--main-font-size);
 }
-
 ```
 
 Both these syntaxes are taken from the
 [Custom Properties spec](https://drafts.csswg.org/css-variables/) which is already applied in most of the browsers.
+
+## CSS output
+
+The default output from the above is:
+
+```css
+body {
+  color: black;
+  background: #fff;
+  font-size: 14px;
+}
+```
+
+If in you Sass you add `$css-vars-use-native: true;` , you will have in CSS:
+
+```css
+:root {
+  --main-color: black;
+  --main-bg: #fff;
+  --main-font-size: 14px;
+}
+
+body {
+  color: var(--main-color);
+  background: var(--main-bg);
+  font-size: var(--main-font-size);
+}
+```
 
 ## Declaration in selectors, reassigning variables
 
