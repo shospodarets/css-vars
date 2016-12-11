@@ -50,7 +50,7 @@ body {
 }
 ```
 
-If in you Sass you add `$css-vars-use-native: true;` , you will have in CSS:
+If in you Sass you add **`$css-vars-use-native: true;`** , you will have in CSS:
 
 ```css
 :root {
