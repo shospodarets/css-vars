@@ -216,4 +216,6 @@ To make it work, just split the declaration and the usage:
 }
 ```
 
+---
+
 ![alt](https://hospodarets.com/img/blog/1482761911710817000.png)
