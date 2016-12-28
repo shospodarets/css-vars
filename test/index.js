@@ -8,7 +8,7 @@
 
 /** REQUIRES **/
 const fs = require('fs');
-const test = require('tape');
+const tape = require('tape');
 const glob = require('glob');
 
 /** METHODS **/
@@ -40,7 +40,7 @@ function testFilesAreEqual(expectedPath, actualPath) {
     const expected = fs.readFileSync(expectedPath, 'utf8');
     const actual = fs.readFileSync(actualPath, 'utf8');
 
-    test('expected === scss output', (t) => {
+    tape('expected === scss output', (t) => {
         t.equal(expected, actual, actualPath);
         t.end();
     });
