@@ -1,4 +1,5 @@
-# Sass mixin to prepare for a switch to CSS Custom Properties (aka CSS Variables)
+# css-vars: Sass mixin to start using CSS Custom Properties
+[![Build Status](https://travis-ci.org/malyw/css-vars.png)](https://travis-ci.org/malyw/css-vars)
 
 ## Installation
 

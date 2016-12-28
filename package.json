@@ -2,7 +2,7 @@
   "name": "css-vars",
   "version": "2.0.1",
   "main": "css-vars.scss",
-  "description": "Sass mixin to prepare for switching to use CSS Custom Properties (aka CSS Variables)",
+  "description": "Sass mixin to start using CSS Custom Properties",
   "author": "Serg Hospodarets <shospodarets@gmail.com>",
   "license": "MIT",
   "devDependencies": {
