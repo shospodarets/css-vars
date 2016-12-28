@@ -23,6 +23,7 @@
     "*.iml",
     ".idea",
     ".npmignore",
-    ".gitignore"
+    ".gitignore",
+    ".travis.yml"
   ]
 }

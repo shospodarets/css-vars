@@ -4,3 +4,4 @@ test
 gulpfile.js
 bower.json
 .npmignore
+.travis.yml
