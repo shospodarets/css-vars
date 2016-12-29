@@ -1,5 +1,4 @@
-# css-vars: Sass mixin to start using CSS Custom Properties
-[![Build Status](https://travis-ci.org/malyw/css-vars.png)](https://travis-ci.org/malyw/css-vars)
+# css-vars: Use CSS Custom Properties with Sass [![Build Status](https://travis-ci.org/malyw/css-vars.png)](https://travis-ci.org/malyw/css-vars)
 
 ## Installation
 
@@ -8,7 +7,7 @@
 * With Bower: `bower install css-var`
 * Manually: get [this file](https://raw.githubusercontent.com/malyw/css-vars/master/css-vars.scss)
 
-Finally, include the main mixin file in your project using an `@import` statement:
+Include the main mixin file in your project using an `@import` statement:
 
 ```scss
 @import "[%PATH%]/css-vars/css-vars";
@@ -16,28 +15,36 @@ Finally, include the main mixin file in your project using an `@import` statemen
 
 ## Usage
 
-To declare variables, use `@include css-vars(<map of variables>)`:
+To declare variables, use `@include css-vars(<map of variables>)`
+(you can reuse Sass variables):
 
 ```scss
+// $css-vars-use-native: true;
+$white-color: #fff;
+$base-font-size: 10px;
+
 @include css-vars((
-      --main-color: black,
-      --main-bg: #fff,
-      --main-font-size: 14px
+        --main-color: #000,
+        --main-bg: $white-color,
+        --main-font-size: 1.5*$base-font-size,
+        --padding-top: calc(2vh + 20px)
 ));
 ```
 
 To use variables, use the `var()` function:
  
 ```scss
-body{
+body {
   color: var(--main-color);
   background: var(--main-bg, #f00);
   font-size: var(--main-font-size);
+  padding: var(--padding-top) 0 10px;
 }
 ```
 
 Both these syntaxes are taken from the
-[Custom Properties spec](https://drafts.csswg.org/css-variables/) which is already applied in most of the browsers.
+[Custom Properties spec](https://drafts.csswg.org/css-variables/)
+which [is already implemented in most of the browsers](http://caniuse.com/#feat=css-variables).
 
 ## CSS output
 
@@ -45,26 +52,31 @@ The default output from the above is:
 
 ```css
 body {
-  color: black;
+  color: #000;
   background: #fff;
-  font-size: 14px;
+  font-size: 15px;
+  padding: calc(2vh + 20px) 0 10px;
 }
+
 ```
 
-If in you Sass you add **`$css-vars-use-native: true;`** , you will have:
+If **`$css-vars-use-native: true;`** is uncommented, native CSS Custom Properties are used:
 
 ```css
 :root {
-  --main-color: black;
+  --main-color: #000;
   --main-bg: #fff;
-  --main-font-size: 14px;
+  --main-font-size: 15px;
+  --padding-top: calc(2vh + 20px);
 }
 
 body {
   color: var(--main-color);
   background: var(--main-bg, #f00);
   font-size: var(--main-font-size);
+  padding: var(--padding-top) 0 10px;
 }
+
 ```
 
 ## Declaration in selectors, reassigning variables

@@ -1,0 +1,6 @@
+body {
+  color: #000;
+  background: #fff;
+  font-size: 15px;
+  padding: calc(2vh + 20px) 0 10px;
+}

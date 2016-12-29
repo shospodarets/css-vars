@@ -1,0 +1,16 @@
+$white-color: #fff;
+$base-font-size: 10px;
+
+@include css-vars((
+        --main-color: #000,
+        --main-bg: $white-color,
+        --main-font-size: 1.5*$base-font-size,
+        --padding-top: calc(2vh + 20px)
+));
+
+body {
+  color: var(--main-color);
+  background: var(--main-bg, #f00);
+  font-size: var(--main-font-size);
+  padding: var(--padding-top) 0 10px;
+}

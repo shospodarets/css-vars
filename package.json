@@ -2,7 +2,7 @@
   "name": "css-vars",
   "version": "2.1.0",
   "main": "css-vars.scss",
-  "description": "Sass mixin to start using CSS Custom Properties",
+  "description": "Use CSS Custom Properties with Sass",
   "author": "Serg Hospodarets <shospodarets@gmail.com>",
   "license": "MIT",
   "devDependencies": {
