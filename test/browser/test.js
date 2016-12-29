@@ -10,7 +10,7 @@
         const cssGeneratedPath = '../fixtures';
         const cssExpectedPath = '../fixtures/expected';
         const cssToApplyPath = `${cssGeneratedPath}/${cssFileName}.css`;
-        const testName = cssFileName.replace('-native', '').replace('-sass', '');
+        const testName = cssFileName.replace(/-native$/, '').replace(/-sass$/, '');
 
         const cssNativePath = `${cssGeneratedPath}/${testName}-native.css`;
         const cssSassPath = `${cssGeneratedPath}/${testName}-sass.css`;
