@@ -110,7 +110,7 @@ $css-vars-debug-log: false !default;
 // ));
 ///
 @mixin css-vars($varMap: null) {
-  @include _css-vars($varMap: null);
+  @include _css-vars($varMap);
 
   @if ($css-vars-use-native) { // CSS variables
     // Native CSS: assign CSS custom properties to the global scope
@@ -138,7 +138,7 @@ $css-vars-debug-log: false !default;
 // ));
 ///
 @mixin css-vars-nested($varMap: null) {
-  @include _css-vars($varMap: null);
+  @include _css-vars($varMap);
 
   @if ($css-vars-use-native) { // CSS variables
     // Native CSS: assign CSS custom properties to the global scope
