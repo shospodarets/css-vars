@@ -80,19 +80,8 @@ $css-vars-debug-log: false !default;
   }
 }
 
-//// MIXIN ////
-
-///
-// CSS mixin to provide variables
-// E.G.:
-// @include css-vars((
-//    --color: rebeccapurple,
-//    --height: 68px,
-//    --margin-top: calc(2vh + 20px)
-// ));
-///
-@mixin css-vars($varMap: null) {
-  // CHECK PARAMS
+@mixin _css-vars($varMap: null) {
+    // CHECK PARAMS
   @if ($varMap==null) {
     @error "Map of variables is expected, instead got: null";
   }
@@ -107,10 +96,53 @@ $css-vars-debug-log: false !default;
       $css-vars: _cssVarAssign($varName, $varValue) !global; // store in global variable
     }
   }
+}
+
+//// MIXIN ////
+
+///
+// CSS mixin to provide variables
+// E.G.:
+// @include css-vars((
+//    --color: rebeccapurple,
+//    --height: 68px,
+//    --margin-top: calc(2vh + 20px)
+// ));
+///
+@mixin css-vars($varMap: null) {
+  @include _css-vars($varMap);
 
   @if ($css-vars-use-native) { // CSS variables
     // Native CSS: assign CSS custom properties to the global scope
     @at-root :root {
+      @each $varName, $varValue in $varMap {
+        @if (type_of($varValue)==string) {
+          #{$varName}: $varValue // to prevent quotes interpolation
+        } @else {
+          #{$varName}: #{$varValue}
+        }
+      }
+    }
+  }
+}
+
+//// MIXIN ////
+
+///
+// CSS mixin to provide variables in a nested context.
+// E.G.:
+// @include css-vars-nested((
+//    --color: rebeccapurple,
+//    --height: 68px,
+//    --margin-top: calc(2vh + 20px)
+// ));
+///
+@mixin css-vars-nested($varMap: null) {
+  @include _css-vars($varMap);
+
+  @if ($css-vars-use-native) { // CSS variables
+    // Native CSS: assign CSS custom properties to the global scope
+    & {
       @each $varName, $varValue in $varMap {
         @if (type_of($varValue)==string) {
           #{$varName}: $varValue // to prevent quotes interpolation
