@@ -6,10 +6,10 @@
   "author": "Serg Hospodarets <shospodarets@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "3.9.1",
-    "gulp-sass": "3.0.0",
-    "node-glob": "1.2.0",
-    "tape": "4.6.3"
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "node-glob": "^1.2.0",
+    "tape": "^4.8.0"
   },
   "repository": "https://github.com/malyw/css-vars",
   "bugs": {
@@ -25,6 +25,7 @@
   "scripts": {
     "gulp": "gulp",
     "test": "gulp sass:test && tape test",
-    "playground": "gulp playground"
+    "playground": "gulp playground",
+    "lock": "npm prune && npm shrinkwrap -dev"
   }
 }
