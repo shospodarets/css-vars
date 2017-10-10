@@ -235,4 +235,4 @@ MIT
 
 ---
 
-![alt](https://hospodarets.com/img/blog/1482761911710817000.png)
+![alt](https://static.hospodarets.com/img/blog/1482761911710817000.png)
