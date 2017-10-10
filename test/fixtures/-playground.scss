@@ -1,0 +1,14 @@
+//$css-vars-use-native: true;
+$css-vars-debug-log: true;
+
+@import "../../css-vars";
+
+// PLAY HERE
+
+//@include css-vars((
+//        --bg: #fff
+//));
+//
+//.test{
+//  background-color: var(--non-existing, #f00);
+//}

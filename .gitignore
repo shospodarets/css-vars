@@ -4,7 +4,7 @@
 
 # Node
 node_modules
-npm-debug.log
+npm-debug.log*
 
 # tests
 test/**/*.css

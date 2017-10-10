@@ -26,7 +26,7 @@ $css-vars-debug-log: false !default;
 
   // assign to the global map
   @if ($css-vars-debug-log and map-get($css-vars, $varName)) {
-    @warn "'#{$varName}' variable is reassigned";
+    @debug "'#{$varName}' variable is reassigned";
   }
 
   @return map-merge($css-vars, ($varName: $varValue));
@@ -59,13 +59,13 @@ $css-vars-debug-log: false !default;
     @if ($varValue==null) { // variable is not provided so far
       @if (length($args)==2) { // the default value is passed
         @if ($css-vars-debug-log) {
-          @warn "Provided default value is used for the variable: '#{$varName}'";
+          @debug "Provided default value is used for the variable: '#{$varName}'";
         }
         $varValue: nth($args, 2);
       } @else if ($css-vars-debug-log) {
-        @warn "Variable '#{$varName}' is not assigned";
+        @debug "Variable '#{$varName}' is not assigned";
         @if (not $css-vars-use-native) {
-          @warn "The var() declaration used it will be skipped in the result CSS";
+          @debug "The 'var(#{$varName}...)' usage will be skipped in the output CSS";
         }
       }
     }
