@@ -24,6 +24,7 @@
   ],
   "scripts": {
     "gulp": "gulp",
-    "test": "gulp sass:test && tape test"
+    "test": "gulp sass:test && tape test",
+    "playground": "gulp playground"
   }
 }
