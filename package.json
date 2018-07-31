@@ -25,7 +25,6 @@
   "scripts": {
     "gulp": "gulp",
     "test": "gulp sass:test && tape test",
-    "playground": "gulp playground",
-    "lock": "npm prune && npm shrinkwrap -dev"
+    "playground": "gulp playground"
   }
 }
