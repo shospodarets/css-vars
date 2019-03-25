@@ -1,4 +1,4 @@
-# css-vars: Use CSS Custom Properties with Sass [![Build Status](https://travis-ci.org/malyw/css-vars.png)](https://travis-ci.org/malyw/css-vars)
+# css-vars: Use CSS Custom Properties with Sass [![CircleCI](https://circleci.com/gh/malyw/css-vars.svg?style=svg)](https://circleci.com/gh/malyw/css-vars) [![TravisCI](https://travis-ci.org/malyw/css-vars.png)](https://travis-ci.org/malyw/css-vars)
 
 ## Installation
 
