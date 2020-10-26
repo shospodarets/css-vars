@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 
-gulp.task('sass:test', function () {
+gulp.task('sass:test', () => {
     return gulp.src('./test/fixtures/*.scss')
         .pipe(sass({
             outputStyle: 'expanded'
@@ -9,25 +9,35 @@ gulp.task('sass:test', function () {
         .pipe(gulp.dest('./test/fixtures/'));
 });
 
-gulp.task('sass:watch', function () {
-    gulp.watch([
-        './test/fixtures/**/*.scss',
-        './*.scss'
-    ], ['sass:test']);
+gulp.task('sass:watch', () => {
+    gulp.watch(
+        [
+            './test/fixtures/**/*.scss',
+            './*.scss'
+        ],
+        gulp.series('sass:test')
+    );
 });
 
 // PLAYGROUND
-gulp.task('sass:playground', function () {
+gulp.task('sass:playground', () => {
     return gulp.src('./test/fixtures/-playground.scss')
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }).on('error', sass.logError))
+        .pipe(
+            sass({
+                outputStyle: 'expanded'
+            }).on('error', sass.logError)
+        )
         .pipe(gulp.dest('./test/fixtures/'));
 });
 
-gulp.task('playground', function () {
-    gulp.watch([
-        './test/fixtures/-playground.scss',
-        './css-vars.scss'
-    ], ['sass:playground']);
+gulp.task('playground', () => {
+    gulp.watch(
+        [
+            './test/fixtures/-playground.scss',
+            './css-vars.scss'
+        ],
+        gulp.series('sass:playground')
+    );
 });
+
+gulp.task('default', gulp.series('sass:test', 'sass:watch'));
