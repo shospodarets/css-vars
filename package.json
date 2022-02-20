@@ -3,7 +3,11 @@
   "version": "2.3.0",
   "main": "css-vars.scss",
   "description": "Use CSS Custom Properties with Sass",
-  "author": "Serg Hospodarets <shospodarets@gmail.com>",
+  "author": {
+    "name" : "Serg Hospodarets",
+    "email" : "shospodarets@gmail.com",
+    "url" : "https://hospodarets.com/"
+  },
   "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.2",
