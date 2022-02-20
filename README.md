@@ -4,7 +4,6 @@
 
 * With npm: `npm install css-vars`
 * With yarn: `yarn add css-vars`
-* With Bower: `bower install css-var`
 * Manually: get [this file](https://raw.githubusercontent.com/malyw/css-vars/master/css-vars.scss)
 
 Include the main mixin file in your project using an `@import` statement:
