@@ -7,9 +7,10 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "node-glob": "^1.2.0",
-    "tape": "^5.0.1"
+    "node-sass": "^7.0.1",
+    "tape": "^5.5.2"
   },
   "repository": "https://github.com/malyw/css-vars",
   "bugs": {

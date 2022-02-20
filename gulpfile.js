@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('node-sass'));
 
 gulp.task('sass:test', () => {
     return gulp.src('./test/fixtures/*.scss')
