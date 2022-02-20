@@ -1,6 +1,6 @@
 {
   "name": "css-vars",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "main": "css-vars.scss",
   "description": "Use CSS Custom Properties with Sass",
   "author": {
